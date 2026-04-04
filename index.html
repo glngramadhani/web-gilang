@@ -1,38 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Website Pertamaku></title>
+<head>
+<meta charset="UTF-8">
+<title>Website Pertamaku></title>
 
-        <style>
-            body{
-                background-color:#38bdf8;
-                color: white;
-                font-family: Arial, sans-serif;
-                text-align: center;
-                padding: 50px;
-            }
-            h1 {
-                color: #38bdf8
-                font-size 40px;
-            }
+<style>
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f172;
+    color: white;
+}
 
-            p {
-                font-size: 18px;
-                background-color: #1e293b;
-                padding: 15px;
-                border-radius: 10px;
-                display: inline-black;
-            }
-        </style>
-    </head>
-    <body>
-        <hi>Website Pertamaku</hi>
+/* Navbar(Menu Atas) */
+.navbar {
+    background: #020617;
+    padding: 15px;
+    text-align: center;
+}
 
-        <p>
-            Assalamualaikum, Halo semua..Kenalin aku Muhammad Gilang Ramadhani.
-            ini adalah Website Pertama aku...
-        </p>
-    </body>
+.navbar a {
+    color: #38bdf8;
+    margin: 0px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*Container*/
+.container {
+    text-align: center;
+    padding: 50px
+}
+
+/*Foto*/
+img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 30px solid #38bdf8;
+    object-fit: cover;
+}
+
+/*Tombol*/
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #38bdf8;
+    color: black;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #0ea5e9;
+}
+</style>
+</head>
+
+<body>
+<div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</div>
+
+<div class="container">
+    <img src="foto.jpg" alt="foto">
+
+    <h1>Gilang Ramadhani</h1>
+    <p>Mahasiswa IT | Lagi belajar bikin website</p>
+
+    <a href="https://instagram.com/gilang_1897">
+</div>
+
+</body>
 </html>
     
