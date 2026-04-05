@@ -2,79 +2,269 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Website Pertamaku></title>
+<title>Website Gilang</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 body{
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f172;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    padding-top: 70px;
+}
+
+/* NAVBAR */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: 0.3s;
+    background: transparent;
     color: white;
 }
 
-/* Navbar(Menu Atas) */
-.navbar {
-    background: #020617;
-    padding: 15px;
-    text-align: center;
+.navbar.scrolled{
+    background: black;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-.navbar a {
-    color: #38bdf8;
-    margin: 0px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/*Container*/
-.container {
-    text-align: center;
-    padding: 50px
-}
-
-/*Foto*/
-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 30px solid #38bdf8;
-    object-fit: cover;
-}
-
-/*Tombol*/
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: #38bdf8;
-    color: black;
-    border-radius: 8px;
-    text-decoration: none;
+/* MENU */
+.menu{
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
     transition: 0.3s;
 }
 
-.btn:hover {
-    background: #0ea5e9;
+.menu a{
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+}
+
+.menu.active{
+    right: 0;
+}
+
+/* ICON */
+.menu-toggle{
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* OVERLAY */
+#overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+
+#overlay.active{
+    display: block;
+}
+
+/* HERO */
+.hero{
+    text-align: center;
+    padding: 80px 20px;
+    color: white;
+}
+
+/* PROFILE */
+.profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    animation: fadeUp 1s ease;
+}
+
+.profile img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+}
+
+.text h1{
+    margin: 0;
+    font-size: 28px;
+}
+
+.text p{
+    margin: 5px 0;
+}
+
+/* CARD */
+.card{
+    background: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+/* IG BUTTON */
+.ig-btn{
+    display: inline-block;
+    background: #E1306C;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.wa-btn{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    font-size: 24px;
+    padding: 15px;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.wa-btn:hover{
+    transform: scale(1.1);
+}
+/* ANIMASI */
+@keyframes fadeUp{
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in{
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.6s;
+}
+
+.fade-in.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px){
+    .profile{
+        flex-direction: column;
+        text-align: center;
+    }
 }
 </style>
 </head>
 
 <body>
+    <a href="https://wa.me/6285147851686" target="_blank" class="wa-btn">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
 <div class="navbar">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+    <div>Gilang</div>
+
+    <div class="menu" id="menu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()" id="btn">☰</div>
 </div>
 
-<div class="container">
-    <img src="foto.jpg" alt="foto">
+<div id="overlay" onclick="toggleMenu()"></div>
 
-    <h1>Gilang Ramadhani</h1>
-    <p>Mahasiswa IT | Lagi belajar bikin website</p>
+<section class="hero">
+    <div class="profile">
+        <img src="foto.jpg.jpg" alt="foto profil">
 
-    <a href="https://instagram.com/gilang_1897">
+        <div class="text">
+            <h1>Gilang</h1>
+            <p>Jasa Pembuatan Website</p>
+        </div>
+    </div>
+</section>
+
+<div class="card fade-in">
+    <h2>Tentang Saya</h2>
+    <p>Saya adalah mahasiswa IT dan saya dapat membantu membuat website modern & murah untuk membantu bisnis go digital.</p>
 </div>
+
+<div class="card fade-in">
+    <h2>Contact</h2>
+    <p>WhatsApp: 085147851686</p>
+
+    <a href="https://instagram.com/gilang_1897" target="_blank" class="ig-btn">
+        <i class="fab fa-instagram"></i> Instagram
+    </a>
+</div>
+
+<script>
+function toggleMenu(){
+    var menu = document.getElementById("menu");
+    var overlay = document.getElementById("overlay");
+    var btn = document.getElementById("btn");
+
+    menu.classList.toggle("active");
+    overlay.classList.toggle("active");
+
+    if(menu.classList.contains("active")){
+        btn.innerHTML = "✕";
+    } else {
+        btn.innerHTML = "☰";
+    }
+}
+
+/* SCROLL */
+window.addEventListener("scroll", function(){
+    var navbar = document.querySelector(".navbar");
+    var elements = document.querySelectorAll(".fade-in");
+
+    if(window.scrollY > 50){
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+
+    elements.forEach(function(el){
+        var posisi = el.getBoundingClientRect().top;
+        var tinggiLayar = window.innerHeight;
+
+        if(posisi < tinggiLayar - 50){
+            el.classList.add("show");
+        }
+    });
+});
+</script>
 
 </body>
 </html>
-    
